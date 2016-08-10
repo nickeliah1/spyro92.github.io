@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>edge storage event propagation problem</title>
+</head>
+<body>
+
+<h1>
+    storage event example
+</h1>
+
+<strong>message: </strong>
+<p id="message">-</p>
+
+<iframe width="100%" height="200" src="/child1.html" allowfullscreen="allowfullscreen"></iframe>
+<iframe width="100%" height="200" src="/child2.html" allowfullscreen="allowfullscreen"></iframe>
+
+<script>
+
+window.addEventListener('storage', function() {
+    //alert('message received from frame: ' + sessionStorage.getItem('message'))
+    document.getElementById('message').textContent = sessionStorage.getItem('message')
+})
+
+</script>
+</body>
+</html>
